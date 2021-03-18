@@ -1,0 +1,81 @@
+@import "variable.scss";
+
+* {
+  box-sizing: border-box;
+  font-family: $customfont;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 30px 50px;
+  line-height: 1.4;
+  background: #ccc;
+}
+
+.top-wrapper {
+  display: grid;
+  grid-template-areas:
+    "header header section-1"
+    "header header section-2";
+  grid-gap: 10px;
+}
+
+.img-header {
+  grid-area: header;
+  background: url(https://image.ibb.co/kYJK8x/showcase.jpg) center;
+  background-size: cover;
+  min-height: 400px;
+  padding: 3rem;
+  color: #fff;
+
+  button {
+    padding: 10px;
+    font-weight: map-get($weight, "bold");
+    border: none;
+    background-color: #282c34;
+    box-shadow: $shadow;
+    color: #fff;
+    &:hover {
+      transition: 0.2s ease-out;
+      color: lightslategrey;
+    }
+  }
+}
+
+.section-1 {
+  grid-area: section-1;
+  text-align: center;
+  a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #282c34;
+    color: #fff;
+    border-radius: 4px;
+    &:hover {
+      transition: 0.2s ease-out;
+      color: lightslategrey;
+    }
+  }
+}
+
+.section-2 {
+  grid-area: section-2;
+  text-align: center;
+  a {
+    padding: 10px;
+    background-color: #282c34;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+    &:hover {
+      transition: 0.2s ease-out;
+      color: lightslategrey;
+    }
+  }
+}
+
+.topics-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}

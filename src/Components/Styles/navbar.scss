@@ -1,0 +1,28 @@
+@import "variable.scss";
+
+* {
+  font-family: $customfont;
+}
+
+.navbar {
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 20px;
+
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    padding: 10px;
+    box-shadow: $shadow;
+    color: #000;
+    &:hover {
+      background-color: deepskyblue;
+      color: #cccccc;
+      transition: 0.2s ease-out;
+    }
+  }
+}
