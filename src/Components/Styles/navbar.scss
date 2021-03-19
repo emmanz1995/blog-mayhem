@@ -11,6 +11,10 @@
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 20px;
 
+  h1 {
+    color: $dark;
+  }
+
   ul {
     list-style: none;
   }
@@ -18,9 +22,9 @@
     text-decoration: none;
     padding: 10px;
     box-shadow: $shadow;
-    color: #000;
+    color: $dark;
     &:hover {
-      background-color: deepskyblue;
+      background-color: $dark;
       color: #cccccc;
       transition: 0.2s ease-out;
     }

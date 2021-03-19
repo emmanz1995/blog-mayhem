@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
+$main-color: #E7E9F0;
+$dark: #051747;
+$light: #535F80;
+$royal-blue: #081f62;
 $customfont: 'Nanum Gothic', sans-serif;
 $shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 $weight: (
@@ -13,3 +17,5 @@ $size: (
   "large": 24px,
   "extralarge": 36px
 );
+
+/* -----------------------------------------Custom Grid-------------------------------------------- */

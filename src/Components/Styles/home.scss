@@ -7,9 +7,13 @@
 }
 
 body {
-  margin: 30px 50px;
+  //margin: 30px 50px;
   line-height: 1.4;
   background: #ccc;
+}
+
+.main-wrapper {
+  margin: 20px;
 }
 
 .top-wrapper {
@@ -22,11 +26,12 @@ body {
 
 .img-header {
   grid-area: header;
-  background: url(https://image.ibb.co/kYJK8x/showcase.jpg) center;
-  background-size: cover;
   min-height: 400px;
   padding: 3rem;
-  color: #fff;
+  color: $dark;
+  font-weight: map-get($weight, "bold");
+  position: relative;
+  z-index: 1;
 
   button {
     padding: 10px;
@@ -41,14 +46,26 @@ body {
     }
   }
 }
+.img-header:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(https://image.ibb.co/kYJK8x/showcase.jpg) center center;
+  opacity: 0.5;
+}
 
 .section-1 {
   grid-area: section-1;
   text-align: center;
+  color: $dark;
   a {
     text-decoration: none;
     padding: 10px;
-    background-color: #282c34;
+    background-color: $dark;
     color: #fff;
     border-radius: 4px;
     &:hover {
@@ -61,9 +78,10 @@ body {
 .section-2 {
   grid-area: section-2;
   text-align: center;
+  color: $dark;
   a {
     padding: 10px;
-    background-color: #282c34;
+    background-color: $dark;
     text-decoration: none;
     color: #fff;
     border-radius: 4px;
@@ -78,4 +96,5 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 20px;
+  color: $dark;
 }

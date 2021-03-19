@@ -1,0 +1,56 @@
+@import 'variable.scss';
+
+.dashboard-wrapper {
+
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: $royal-blue;
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    padding: 10px;
+    box-shadow: $shadow;
+    background-color: $main-color;
+    margin: 0 10px;
+    &:hover {
+      transition: 0.2s ease-out;
+      color: #cccccc;
+      background-color: $light;
+      border-radius: 5px;
+    }
+  }
+}
+
+//.dashboard-content {
+//  color: $dark;
+//}
+
+.new-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.post-table {
+  border-collapse: collapse;
+  width: 100%;
+  th {
+    font-weight: map-get($weight, "bold");
+    font-size: map-get($size, "large");
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #dddddd;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  td {
+    font-size: map-get($size, "normal");
+  }
+}
