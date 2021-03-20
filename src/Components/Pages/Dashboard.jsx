@@ -7,13 +7,16 @@ import '../Styles/dashboard.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../../Redux/Actions/postsAction';
+import {getUser} from "../../Redux/Actions/userAction";
 
 const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch();
     const postData = useSelector(state => state.postData)
-    const [currentUser] = useState(AuthService.getUserInfo);
+    const userData = useSelector(state => state.userData)
+    // const [currentUser] = useState(AuthService.getUserInfo);
     const { loading, error, posts } = postData;
+    const { user } = userData
     const handleSignout = (evt) => {
         evt.preventDefault();
         localStorage.clear();
@@ -21,6 +24,7 @@ const Dashboard = () => {
     }
     useEffect(() => {
         dispatch(getPosts())
+        dispatch(getUser())
     }, [dispatch])
 
     if(loading) {
@@ -36,7 +40,7 @@ const Dashboard = () => {
                     </ul>
                     <ul>
                         <li style={{display: 'flex', alignItems: 'center'}}>
-                            <Link className="profile-link">{currentUser.user_nicename}</Link>
+                            <Link className="profile-link">{user.name}</Link>
                             <a className="signout-link" href="" onClick={handleSignout}><i className="fas fa-sign-out-alt" /></a>
                         </li>
                     </ul>

@@ -14,6 +14,8 @@ function onSignin(username, password) {
     })
     .then((response) => {
         if(response.data.token) {
+            const { token } = response.data;
+            localStorage.setItem('token', token);
             localStorage.setItem('userInfo', JSON.stringify(response.data));
         }
         // console.log(response.data)

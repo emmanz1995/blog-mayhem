@@ -1,7 +1,8 @@
-import { FETCH_POSTS, POSTS_ERROR } from '../types';
+import { FETCH_POSTS, ADD_POST, POSTS_ERROR } from '../types';
 
 const initialState = {
     posts: [],
+    post: {},
     loading: true
 }
 
@@ -13,11 +14,20 @@ export default function (state = initialState, action) {
             posts: action.payload,
             loading: false
         }
+
+        case ADD_POST:
+        return {
+            ...state,
+            post: action.payload,
+            loading: false
+        }
+
         case POSTS_ERROR:
-            return {
-                loading: false,
-                error: action.payload
-            }
+        return {
+            loading: false,
+            error: action.payload
+        }
+
         default: return state
     }
 }
