@@ -1,19 +1,24 @@
 @import 'variable.scss';
 
 .dashboard-wrapper {
-
+  height: 100vh;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: $royal-blue;
+  height: 70px;
+  h1 {
+    color: #cccccc;
+  }
   li {
     list-style: none;
   }
-  a {
+  .signout-link {
     text-decoration: none;
-    padding: 10px;
+    padding: 6px;
     box-shadow: $shadow;
     background-color: $main-color;
     margin: 0 10px;
@@ -23,6 +28,15 @@
       background-color: $light;
       border-radius: 5px;
     }
+  }
+}
+
+.profile-link {
+  text-decoration: none;
+  color: #cccccc;
+  &:hover {
+    transition: 0.2s ease-out;
+    color: $light;
   }
 }
 

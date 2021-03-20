@@ -4,10 +4,13 @@
   position: relative;
   float: left;
   z-index: 9990;
-  text-align: center;
+  //text-align: center;
   background-color: $dark;
   padding: 10px;
   height: 94.5vh;
+  ul {
+    margin: 2px auto;
+  }
   h1 {
     color: $light;
   }
@@ -16,7 +19,9 @@
   }
   a {
     text-decoration: none;
-    color: #cccccc;
+    color: $dark;
+    padding: 5px;
+    background-color: #cccccc;
     &:hover {
       color: $light;
       transition: 0.2s ease-out;

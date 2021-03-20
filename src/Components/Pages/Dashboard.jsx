@@ -1,52 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import AuthService from '../../Service/AuthService';
 import { useHistory } from 'react-router-dom';
 import AuthService from '../../Service/AuthService';
-import Sidebar from "../Layout/Sidebar";
+import Sidebar from '../Layout/Sidebar';
 import '../Styles/dashboard.scss';
-import PostService from "../../Service/PostService";
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPosts } from '../../Redux/Actions/postsAction';
 
 const Dashboard = () => {
     const history = useHistory()
+    const dispatch = useDispatch();
+    const postData = useSelector(state => state.postData)
     const [currentUser, setCurrentUser] = useState(AuthService.getUserInfo);
-    const [posts, setPosts] = useState([])
+    const { loading, error, posts } = postData;
     const handleSignout = (evt) => {
         evt.preventDefault();
         // AuthService.Signout();
         localStorage.clear();
         history.push('/')
     }
-    React.useEffect(() => {
-        function postData() {
-            PostService.getPosts()
-                .then((response) => {
-                    setPosts(response.data)
-                    console.log('Posts: ', response.data)
-                })
-        }
-        return postData()
-    }, [])
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [dispatch])
 
-
-    return(
-        <div className="dashboard-wrapper">
-            <div className="nav">
-                <ul style={{display: 'flex'}}>
-                    <li><a href="">Add New Post</a></li>
-                    <li><a href="">Comments</a></li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="" onClick={handleSignout}>Hi,{' '}{currentUser.user_nicename}</a>
-                    </li>
-                </ul>
-            </div>
-            {/*<div className="dashboard-content">*/}
+    if(loading) {
+        return(
+            <p>Loading...</p>
+        )
+    } else {
+        return(
+            <div className="dashboard-wrapper">
+                <div className="nav">
+                    <ul style={{display: 'flex'}}>
+                        <h1>BlogMayhem</h1>
+                    </ul>
+                    <ul>
+                        <li style={{display: 'flex', alignItems: 'center'}}>
+                            <Link className="profile-link">{currentUser.user_nicename}</Link>
+                            <a className="signout-link" href="" onClick={handleSignout}><i className="fas fa-sign-out-alt" /></a>
+                        </li>
+                    </ul>
+                </div>
                 <aside className="side-bar">
                     <Sidebar />
                 </aside>
                 {/*<h3>{currentUser.user_nicename}</h3>*/}
-                {/*<button onClick={handleSignout}>Signout</button>*/}
                 <div className="new-section">
                     <h1 className="title">Dashboard</h1>
                     <table className="post-table">
@@ -64,9 +63,10 @@ const Dashboard = () => {
                         ))}
                     </table>
                 </div>
-            {/*</div>*/}
-        </div>
-    )
+            </div>
+        )
+    }
+
 }
 
 export default Dashboard;
