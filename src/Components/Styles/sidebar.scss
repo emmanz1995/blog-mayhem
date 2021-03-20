@@ -23,8 +23,10 @@
     padding: 5px;
     background-color: #cccccc;
     &:hover {
-      color: $light;
+      color: $dark;
       transition: 0.2s ease-out;
+      border-radius: 4px;
+      background-color: $light;
     }
   }
 }

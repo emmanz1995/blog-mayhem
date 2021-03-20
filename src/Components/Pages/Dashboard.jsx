@@ -12,11 +12,10 @@ const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch();
     const postData = useSelector(state => state.postData)
-    const [currentUser, setCurrentUser] = useState(AuthService.getUserInfo);
+    const [currentUser] = useState(AuthService.getUserInfo);
     const { loading, error, posts } = postData;
     const handleSignout = (evt) => {
         evt.preventDefault();
-        // AuthService.Signout();
         localStorage.clear();
         history.push('/')
     }
@@ -66,7 +65,6 @@ const Dashboard = () => {
             </div>
         )
     }
-
 }
 
 export default Dashboard;
