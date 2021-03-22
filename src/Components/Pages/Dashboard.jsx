@@ -55,12 +55,16 @@ const Dashboard = () => {
                             <th>Author Id</th>
                             <th>Title</th>
                             <th>Date</th>
+                            <th></th>
                         </tr>
                         {posts.map(post => (
                             <tr key={post.id}>
                                 <td>{post.author}</td>
                                 <td>{post.title?.rendered}</td>
                                 <td>{post.date}</td>
+                                <td>
+                                    <Link>Delete</Link>
+                                </td>
                             </tr>
                         ))}
                     </table>
