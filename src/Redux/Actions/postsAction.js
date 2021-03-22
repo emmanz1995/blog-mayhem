@@ -2,10 +2,12 @@ import { FETCH_POSTS, POSTS_ERROR, ADD_POST } from '../types';
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_MAIN_URL;
+const token = localStorage.getItem('token')
+const id = localStorage.getItem('id')
 
 export const getPosts = () => async dispatch => {
     try {
-        const response = await axios.get(`${API_URL}/wp-json/wp/v2/posts?author=${1}`);
+        const response = await axios.get(`${API_URL}/wp-json/wp/v2/posts?author=${id}`);
         dispatch({
             type: FETCH_POSTS,
             payload: response.data,
@@ -22,7 +24,8 @@ export const addPost = (postData) => async dispatch => {
     try {
         const response = await axios.post(`${API_URL}/wp-json/wp/v2/posts`, postData,{
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${token}`
             }
         });
         dispatch({

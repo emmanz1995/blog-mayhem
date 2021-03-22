@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
-// import AuthService from '../../Service/AuthService';
 import { useHistory } from 'react-router-dom';
-import AuthService from '../../Service/AuthService';
 import Sidebar from '../Layout/Sidebar';
-import '../Styles/dashboard.scss';
+import '../Scss/dashboard.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../../Redux/Actions/postsAction';
-import {getUser} from "../../Redux/Actions/userAction";
+import { getUser } from '../../Redux/Actions/userAction';
 
 const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch();
     const postData = useSelector(state => state.postData)
     const userData = useSelector(state => state.userData)
-    // const [currentUser] = useState(AuthService.getUserInfo);
+    // const [currentUser] = useState(UserService.getUser);
     const { loading, error, posts } = postData;
-    const { user } = userData
+    const { user } = userData;
+
     const handleSignout = (evt) => {
         evt.preventDefault();
         localStorage.clear();
@@ -40,7 +39,7 @@ const Dashboard = () => {
                     </ul>
                     <ul>
                         <li style={{display: 'flex', alignItems: 'center'}}>
-                            <Link className="profile-link">{user.name}</Link>
+                            <Link to="/account" className="profile-link">{user.name}</Link>
                             <a className="signout-link" href="" onClick={handleSignout}><i className="fas fa-sign-out-alt" /></a>
                         </li>
                     </ul>

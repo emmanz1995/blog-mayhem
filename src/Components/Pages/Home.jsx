@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../Layout/Navbar";
-import '../Styles/home.scss';
+import '../Scss/home.scss';
 import { useHistory } from 'react-router-dom';
 
 const Home = () => {

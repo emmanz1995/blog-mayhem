@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import '../Styles/signin.scss';
+import '../Scss/signin.scss';
 import AuthService from '../../Service/AuthService';
 
 const Signin = () => {
