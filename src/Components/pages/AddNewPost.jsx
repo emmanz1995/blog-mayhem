@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../Layout/Sidebar';
+import Sidebar from '../layouts/Sidebar';
 import { addPost } from '../../Redux/Actions/postsAction';
 
 const AddNewPost = ({props}) => {

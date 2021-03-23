@@ -1,4 +1,5 @@
 @import 'variable.scss';
+@import 'animations';
 
 .signin-wrapper {
   display: flex;
@@ -7,12 +8,17 @@
   align-items: center;
 }
 
-.signin-form {
+.signin-opacity {
   padding: 60px 68px 40px;
   min-height: 525px;
-  background-color: lightslategrey;
+  background: $background-gradients;
+  box-shadow: $dark-shadow;
   //opacity: 0.5;
+}
+
+.signin-form {
   color: #fff;
+  position: relative;
   input {
     border: none;
     border-radius: 4px;
@@ -21,7 +27,7 @@
     background: #333;
     color: #fff;
     font-weight: map-get($weight, "bold");
-    padding: 15px;
+    padding: 0 32px;
   }
   button {
     width: 100%;
@@ -34,3 +40,16 @@
     text-decoration: none;
   }
 }
+
+.fa-user {
+  position: absolute;
+  top: 78px;
+  left: 10px;
+}
+
+.fa-lock {
+  position: absolute;
+  top: 138px;
+  left: 10px;
+}
+
