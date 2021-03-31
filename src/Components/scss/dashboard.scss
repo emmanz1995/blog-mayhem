@@ -50,6 +50,24 @@
   margin: 0 auto;
 }
 
+.search-container {
+  padding: 5px;
+  input[type=search] {
+    width: 95%;
+    height: 35px;
+    border: none;
+  }
+  input[type=submit] {
+    height: 35px;
+    border: none;
+    &:hover {
+      transition: 0.2s ease-out;
+      background-color: #dddddd;
+      border-radius: 4px;
+    }
+  }
+}
+
 .post-table {
   border-collapse: collapse;
   width: 100%;

@@ -1,0 +1,30 @@
+.banner {
+  margin: 0 auto;
+  max-width: 1400px;
+  background-color: #ddd;
+  padding: 5px;
+}
+
+//.banner-wrapper {
+//
+//}
+
+.main-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    text-decoration: none;
+  }
+}
+
+.mini-nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+}

@@ -20,9 +20,9 @@ export const getPosts = () => async dispatch => {
     }
 }
 
-export const addPost = (postData) => async dispatch => {
+export const addPost = () => async dispatch => {
     try {
-        const response = await axios.post(`${API_URL}/wp-json/wp/v2/posts`, postData,{
+        const response = await axios.post(`${API_URL}/wp-json/wp/v2/posts`,{
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${token}`

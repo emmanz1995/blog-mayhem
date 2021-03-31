@@ -7,12 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../../Redux/Actions/postsAction';
 import { getUser } from '../../Redux/Actions/userAction';
 import DashboardNav from "../layouts/DashboardNav";
+import Banner from "../layouts/Banner";
 
 const Dashboard = () => {
     const history = useHistory()
     const dispatch = useDispatch();
-    const postData = useSelector(state => state.postData)
-    const userData = useSelector(state => state.userData)
+    const postData = useSelector(state => state.postData);
+    const userData = useSelector(state => state.userData);
+    const [searchValue, setSearchValue] = useState({postData});
     // const [currentUser] = useState(UserService.getUser);
     const { loading, error, posts } = postData;
     const { user } = userData;
@@ -21,6 +23,7 @@ const Dashboard = () => {
         dispatch(getPosts())
         dispatch(getUser())
     }, [dispatch])
+    // console.log(postData)
 
     if(loading) {
         return(
@@ -34,12 +37,14 @@ const Dashboard = () => {
         return(
             <div className="dashboard-wrapper">
                 <DashboardNav user={user} />
-                <aside className="side-bar">
-                    <Sidebar />
-                </aside>
-                {/*<h3>{currentUser.user_nicename}</h3>*/}
+                <Banner heading="Dashboard" />
                 <div className="new-section">
-                    <h1 className="title">Dashboard</h1>
+                    {/*<h1 className="title">Dashboard</h1>*/}
+                    <hr />
+                    <div className="search-container">
+                        <input type="search" value={searchValue} onChange={(evt) => setSearchValue(evt.target.value)} placeholder="Search blog post" />{' '}
+                        <input type="submit" />
+                    </div>
                     <table className="post-table">
                         <tr>
                             <th>Author Id</th>
@@ -47,7 +52,6 @@ const Dashboard = () => {
                             <th>Date</th>
                             <th></th>
                         </tr>
-
                         {posts.map(post => (
                             <tr key={post.id}>
                                 <td>{post.author}</td>

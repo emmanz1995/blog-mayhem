@@ -24,7 +24,7 @@ const Navbar = () => {
     return(
         // <div className="main-nav">
             <nav className="navbar">
-                <h1>BlogMayhem</h1>
+                <h1>ChristIsComing</h1>
                 {navbar.navlinks.map(nav => (
                     <ul key={nav.id}>
                         <li>

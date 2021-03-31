@@ -15,7 +15,8 @@ const Home = () => {
             {/*#######################Top Wrapper##############################*/}
             <section className="top-wrapper">
                 <header className="img-header">
-                    <h1>Write your own Blog or support other bloggers by reading their blogs and leaving a comment.</h1>
+                    <h1>Write your own Blog or support other bloggers by reading their blogs and leaving a comment. This site is designed for the believer around the world write inspiring post about the coming King Jesus the Christ.</h1>
+                    <h2>Users are also able to write notes and prayer requests with this site.</h2>
                     <h3>Login to your account by clicking the button below: </h3>
                     <button onClick={signin}>Signin</button>
                 </header>
@@ -27,7 +28,7 @@ const Home = () => {
                 <div className="section-2">
                     <h1>Title 2</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <a href="">Blog</a>
+                    <a href="/dashboard">Blog</a>
                 </div>
             </section>
             <br />
