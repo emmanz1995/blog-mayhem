@@ -25,7 +25,7 @@ const Account = () => {
               <p>Email: {user.email}</p><br />
               <p>Username: {user.name}</p><br />
               <p>Description: </p>
-              <p>{user.description}</p>
+              <p>{user.description || <p>No description</p>}</p>
           </div>
       </div>
     );

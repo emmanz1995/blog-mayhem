@@ -5,5 +5,6 @@ import userReducer from './userReducer'
 export default combineReducers({
     postData: postsReducer,
     addPost: postsReducer,
-    userData: userReducer
+    userData: userReducer,
+    // allUsersData: userReducer
 })

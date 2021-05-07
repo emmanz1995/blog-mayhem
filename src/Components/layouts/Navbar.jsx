@@ -20,21 +20,19 @@ const Navbar = () => {
                 "link": "/dashboard"
             },
         ]
-    }
+    };
     return(
-        // <div className="main-nav">
-            <nav className="navbar">
-                <h1>ChristIsComing</h1>
-                {navbar.navlinks.map(nav => (
-                    <ul key={nav.id}>
-                        <li>
-                            <a href={nav.link}>{nav.name}</a>
-                        </li>
-                    </ul>
-                ))}
-            </nav>
-        // </div>
-    )
-}
+        <nav className="navbar">
+            <h1>KingdomCome</h1>
+            {navbar.navlinks.map(nav => (
+                <ul key={nav.id}>
+                    <li>
+                        <a href={nav.link}>{nav.name}</a>
+                    </li>
+                </ul>
+            ))}
+        </nav>
+    );
+};
 
 export default Navbar;

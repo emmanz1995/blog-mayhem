@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../layouts/Sidebar';
 // import { addPost } from '../../Redux/Actions/postsAction';
 import axios from 'axios';
-import moment from 'moment';
 import '../scss/addnewpost.scss';
 import DashboardNav from "../layouts/DashboardNav";
+import { useAlert } from 'react-alert';
+import { useHistory } from 'react-router-dom';
 
 const token = localStorage.getItem('token');
 
@@ -13,6 +14,8 @@ const AddNewPost = () => {
     const [content, setContent] = useState('');
     const [postAdded, setPostAdded] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const alert = useAlert();
+    const history = useHistory();
     function onChange(evt) {
 
     }
@@ -23,18 +26,27 @@ const AddNewPost = () => {
             content: content,
             status: 'publish'
         }
-        axios.post(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`, postData,{
-            headers: {
-                Authorization: 'Bearer ' + token,
-                "content-type": "application/json"
-            }
-        })
-        .then((response) => {
-            if(response.data.status === 200) {
-                setPostAdded( !! response.data.id );
-                setIsLoading(false);
-            }
-        });
+        // if(alert.success('Posted successfully!')) {
+            axios.post(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts`, postData,{
+                headers: {
+                    Authorization: 'Bearer ' + token,
+                    "content-type": "application/json"
+                }
+            })
+                .then((response) => {
+                    if(response.data.status === 201) {
+                        setPostAdded( !! response.data.id );
+                        setIsLoading(false);
+                    } else if(response.data.status === 204) {
+                        alert.error('Could not post post due to an error!');
+                        console.log('Error occurred');
+                    }
+                })
+                .then(success => {
+                    alert.success('Posted successfully!');
+                    history.push('/dashboard')
+                })
+        // }
     }
 
     return(

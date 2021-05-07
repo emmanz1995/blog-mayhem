@@ -41,11 +41,8 @@
   }
 }
 
-//.dashboard-content {
-//  color: $dark;
-//}
-
 .new-section {
+  position: relative;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -53,39 +50,38 @@
 .search-container {
   padding: 5px;
   input[type=search] {
-    width: 95%;
+    width: 95.5%;
     height: 35px;
-    border: none;
+    border: 1px solid #000;
+    border-radius: 5px;
   }
   input[type=submit] {
     height: 35px;
     border: none;
+    background-color: rgba(26,26,26,.7);
+    color: #fff;
     &:hover {
       transition: 0.2s ease-out;
-      background-color: #dddddd;
+      background-color: #c1b8b8;
       border-radius: 4px;
+      color: #000;
     }
   }
 }
 
-.post-table {
-  border-collapse: collapse;
-  width: 100%;
-  th {
-    font-weight: map-get($weight, "bold");
-    font-size: map-get($size, "large");
-  }
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #dddddd;
-  }
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  td {
-    font-size: map-get($size, "normal");
-  }
+.card-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-post {
+  border-radius: 4px;
+  margin: 10px auto;
+  width: 450px;
+  padding: 0 5px;
+  text-decoration: none;
+  color: #282c34;
+  box-shadow: 0 2px 5px 0 rgb(100, 100, 100);
 }
 
 .is-loading {
@@ -93,4 +89,10 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.card-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

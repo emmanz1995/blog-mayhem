@@ -1,7 +1,8 @@
-import { USER_DATA, USER_ERROR } from "../types";
+import { USER_DATA, USER_ERROR, USERS_DATA, USERS_ERROR } from "../types";
 
 const initialState = {
     user: {},
+    users: []
     // loading: true
 }
 
@@ -18,6 +19,16 @@ export default function(state = initialState, action) {
             // loading: false,
             error: action.payload
         }
+
+        case USERS_DATA:
+            return {
+                ...state,
+                users: action.payload,
+            }
+        case USERS_ERROR:
+            return {
+                error: action.payload
+            }
         default: return state
     }
 };

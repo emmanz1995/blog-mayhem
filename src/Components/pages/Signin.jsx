@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../scss/signin.scss';
-import AuthService from '../../Service/AuthService';
+import { AuthService } from '../../Service/AuthService';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
+import { useAlert } from 'react-alert';
 
 
 const Signin = () => {
+    const alert = useAlert();
     const history = useHistory();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -14,6 +16,7 @@ const Signin = () => {
         evt.preventDefault();
         AuthService.onSignin(username, password)
         .then(() => {
+            alert.success('Successfully logged in, welcome back');
             history.push('/dashboard')
         })
         .catch(error => console.log(error))
